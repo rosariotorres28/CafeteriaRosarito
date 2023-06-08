@@ -1,16 +1,14 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-const ItemProducto = () => {
+const ItemProducto = (props) => {
     return (
         <tr>
-        <td>1</td>
-        <td>Café</td>
-        <td>700</td>
-        <td>
-          https://www.pexels.com/es-es/foto/capuchino-en-taza-de-ceramica-3879495/
-        </td>
-        <td>Bebida-caliente</td>
+        <td>{props.producto.id}</td>
+        <td>{props.producto.nombreProducto}</td>
+        <td>{props.producto.precio}</td>
+        <td>{props.producto.imagen}</td>
+        <td>{props.producto.categoria}</td>
         <td>
           <Button variant="warning">Editar</Button>
           <Button variant="danger">Borrar</Button>

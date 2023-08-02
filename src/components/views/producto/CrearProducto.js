@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { cantidadCaracteres, validarPrecio } from "./helpers.js";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CrearProducto = () => {
   //crear states
@@ -13,6 +14,8 @@ const CrearProducto = () => {
 
   //variable de entorno con la direccion de mi api
   const URL = process.env.REACT_APP_API_CAFETERIA
+  //inicializar useNavigate
+  const navegacion = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,6 +45,9 @@ const CrearProducto = () => {
           'El producto fue creado con éxito',
           'success'
         )
+
+        //redireccionar a la pagina de administrar
+        navegacion("/administrar");
       }
 
     }catch(error){

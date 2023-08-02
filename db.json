@@ -41,6 +41,13 @@
       "imagen": "dfjskfhnkjdfkjsdf",
       "categoria": "dulce",
       "id": 6
+    },
+    {
+      "nombreProducto": "pan",
+      "precio": "450",
+      "imagen": "fdsfsf",
+      "categoria": "salado",
+      "id": 7
     }
   ]
 }

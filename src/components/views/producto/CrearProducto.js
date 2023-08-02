@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { cantidadCaracteres, validarPrecio } from "./helpers.js";
+import Swal from "sweetalert2";
 
 const CrearProducto = () => {
   //crear states
@@ -10,14 +11,47 @@ const CrearProducto = () => {
   const [categoria, setCategoria] = useState ("");
   const [msjError, setMsjError] = useState (false);
 
-  const handleSubmit = (e) => {
+  //variable de entorno con la direccion de mi api
+  const URL = process.env.REACT_APP_API_CAFETERIA
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     //validar los datos
     if(cantidadCaracteres (nombreProducto) && validarPrecio(precio)){
       setMsjError(false)
+      //crear un objeto
+    const nuevoProducto = {
+      nombreProducto: nombreProducto,
+      precio: precio,
+      imagen: imagen,
+      categoria: categoria
+    }
+    console.log(nuevoProducto)
+    //enviar peticion a json server (api) create
+    try{
+      const respuesta = await fetch(URL, {
+        method: "POST",
+        headers:{
+          "Content-Type": "application/json"},
+          body: JSON.stringify(nuevoProducto)
+      });
+      if(respuesta.status === 201){
+        //mostrar un msj que todo salió bien
+        Swal.fire(
+          'Producto creado!',
+          'El producto fue creado con éxito',
+          'success'
+        )
+      }
+
+    }catch(error){
+      console.log(error)
+    }
+
     }else{
       setMsjError(true)
     }
+    
   };
 
   return (

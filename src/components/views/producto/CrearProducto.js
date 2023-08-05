@@ -61,8 +61,8 @@ const CrearProducto = () => {
   };
 
   return (
-    <section className="container">
-      <h1 className="display-4 mt-5">Nuevo producto</h1>
+    <section className="container pb-5">
+      <h1 className="display-4 pt-5">Nuevo producto</h1>
       <hr></hr>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formNombre">

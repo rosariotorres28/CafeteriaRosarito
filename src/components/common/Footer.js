@@ -1,11 +1,29 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Image } from "react-bootstrap";
+import gatocafe from "../views/img/gatocafe2.png";
+import "./styleFooter.css"
 
 const Footer = () => {
-    return (
-        <div>
-            <h1>footer</h1>
+  return (
+    <div className="foot">
+      <div className="container">
+        <div className="row mx-2 justify-content-between">
+          <div className="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-start px-md-0">
+            <Link to="/">
+              <Image src={gatocafe} alt="logo" className="imagen" />
+            </Link>
+          </div>
+          <div className="col-12 col-md-4 py-5">
+            <h6 className="text-dark"> © TODOS LOS DERECHOS RESERVADOS</h6>
+          </div>
+          <div className="col-12 col-md-4 py-5">
+            <h6 className="text-dark">PROGRAMADORA: Maria del Rosario Torres</h6>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Footer;

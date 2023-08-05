@@ -1,25 +1,46 @@
 {
   "productos": [
     {
-      "nombreProducto": "licuado",
-      "precio": "700",
-      "imagen": "http://...",
-      "categoria": "bebida-fria",
-      "id": 2
-    },
-    {
-      "nombreProducto": "café",
-      "precio": "400",
-      "imagen": "http://...",
-      "categoria": "bebida-caliente",
-      "id": 4
-    },
-    {
-      "nombreProducto": "galletas",
-      "precio": "444",
-      "imagen": "dfjskfhnkjdfkjsdf",
+      "nombreProducto": "brownie con choco",
+      "precio": "8888",
+      "imagen": "nnklln",
       "categoria": "dulce",
+      "id": 5
+    },
+    {
+      "nombreProducto": "tostadas",
+      "precio": "200",
+      "imagen": "njjknk",
+      "categoria": "salado",
       "id": 6
+    },
+    {
+      "nombreProducto": "licuado",
+      "precio": "500",
+      "imagen": "juijij",
+      "categoria": "bebida fria",
+      "id": 7
+    },
+    {
+      "nombreProducto": "medialunas",
+      "precio": "600",
+      "imagen": "iijij",
+      "categoria": "dulce",
+      "id": 8
+    },
+    {
+      "nombreProducto": "pan",
+      "precio": "300",
+      "imagen": "mkmkm",
+      "categoria": "salado",
+      "id": 9
+    },
+    {
+      "nombreProducto": "galletas de gatito",
+      "precio": "350",
+      "imagen": "nuinui",
+      "categoria": "dulce",
+      "id": 10
     }
   ]
 }

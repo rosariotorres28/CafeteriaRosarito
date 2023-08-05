@@ -41,6 +41,13 @@
       "imagen": "nuinui",
       "categoria": "dulce",
       "id": 10
+    },
+    {
+      "nombreProducto": "bollitos",
+      "precio": "250",
+      "imagen": "koko",
+      "categoria": "salado",
+      "id": 11
     }
   ]
 }

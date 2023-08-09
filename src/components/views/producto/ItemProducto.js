@@ -2,15 +2,25 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import "./styleItem.css";
 
 const ItemProducto = ({ producto, consultarAPI }) => {
-  const { nombreProducto, precio, imagen, categoria, id } = { ...producto };
+  const { nombreProducto, precio, imagen, categoria, id } = producto;
   const URL = process.env.REACT_APP_API_CAFETERIA;
+
+  function truncarTexto(texto, longitudMaxima) {
+    if (texto.length > longitudMaxima) {
+      var textoTruncado = texto.slice(0, longitudMaxima);
+      return textoTruncado + "...";
+    } else {
+      return texto;
+    }
+  }
 
   const handleDelete = () => {
     Swal.fire({
-      title: "Estas seguro de borrar?",
-      text: "No puede volver atrás!",
+      title: "Estás seguro de borrar?",
+      text: "No puedes volver atrás.",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -19,7 +29,6 @@ const ItemProducto = ({ producto, consultarAPI }) => {
       cancelButtonText: "Cancelar",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        //realizar la peticion para eliminar un producto DELETE
         try {
           const parametros = {
             method: "DELETE",
@@ -27,8 +36,7 @@ const ItemProducto = ({ producto, consultarAPI }) => {
 
           const respuesta = await fetch(URL + "/" + id, parametros);
           if (respuesta.status === 200) {
-            Swal.fire("Borrado!", "El producto fue eliminado", "success");
-            //recargar o actualizar la tabla de productos
+            Swal.fire("Borrado", "El producto fue eliminado", "success");
             consultarAPI();
           }
         } catch (error) {
@@ -37,18 +45,32 @@ const ItemProducto = ({ producto, consultarAPI }) => {
       }
     });
   };
+
   return (
     <tr>
       <td>{id}</td>
       <td>{nombreProducto}</td>
       <td>${precio}</td>
-      <td>{imagen}</td>
+      <Link to={`/administrar/producto/detalle/${id}`}>
+      <td>{truncarTexto(imagen, 45)}</td>
+      </Link>
       <td>{categoria}</td>
       <td className="d-flex">
-        <Link to={`/administrar/editar/${id}`} className="btn btn-warning mx-2">
-          Editar
+        <Link to={`/administrar/editar/${id}`}>
+          <Button
+            variant="outline-light"
+            style={{ background: "#f29191" }}
+            className="btn"
+          >
+            Editar
+          </Button>
         </Link>
-        <Button variant="danger" onClick={handleDelete}>
+        <Button
+          onClick={handleDelete}
+          variant="outline-light"
+          style={{ background: "#f29191" }}
+          className="btn"
+        >
           Borrar
         </Button>
       </td>
@@ -57,3 +79,5 @@ const ItemProducto = ({ producto, consultarAPI }) => {
 };
 
 export default ItemProducto;
+
+

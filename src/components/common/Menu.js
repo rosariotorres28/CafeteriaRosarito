@@ -6,22 +6,25 @@ import gatocafe from "../views/img/gatocafe2.png";
 
 const Menu = () => {
   return (
-    <Navbar variant="dark" expand="lg" className="menu">
+    <Navbar variant="dark" expand="lg" className="menu align-items-center data-container ">
       <Container className="d-flex">
         <Navbar.Brand as={Link} to="/">
-          <Image src={gatocafe} className="imagen"></Image>
+          <Image src={gatocafe} className="imagen" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav className="mr-auto justify-content-center">
-            <NavLink to="/" className="nav-item nav-link">
-              <h5>INICIO</h5>
+          <Nav className="mr-auto flex-grow-1 mx-5 justify-content-center ">
+          <NavLink end to="/" className="nav-item nav-link ">
+              <h5 className="">HOME</h5>
             </NavLink>
-            <NavLink end to="/administrar" className="nav-item nav-link">
-              <h5>ADMINISTRAR</h5>
+            <NavLink end to="/inicio" className="nav-item nav-link ">
+              <h5 className="">INICIO</h5>
+            </NavLink>
+            <NavLink end to="/administrar" className="nav-item nav-link ">
+              <h5 className="">ADMINISTRAR</h5>
             </NavLink>
             <NavLink end to="/administrar/crear" className="nav-item nav-link">
-              <h5>CREAR</h5>
+              <h5 className="">CREAR</h5>
             </NavLink>
           </Nav>
         </Navbar.Collapse>
@@ -31,4 +34,5 @@ const Menu = () => {
 };
 
 export default Menu;
+
 

@@ -1,0 +1,18 @@
+.bg{
+    background-image: url("../img/fondo.jpg");
+}
+
+.cardi{
+    padding-left: 25px;
+}
+.bad{
+    margin-left: 250px;
+}
+
+.bg-card{
+    background-color: #f29191;
+}
+
+.img{
+    margin-right: 100px;
+}

@@ -1,13 +1,11 @@
-import React from "react";
-import { Table } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Table, Button } from "react-bootstrap";
 import ItemProducto from "./ItemProducto";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../../common/styleBurbujas.css"
+import "./styleAdministrar.css"
 
 const AdministrarProductos = () => {
   const URL = process.env.REACT_APP_API_CAFETERIA;
-
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
@@ -15,48 +13,56 @@ const AdministrarProductos = () => {
   }, []);
 
   const consultarAPI = async () => {
-    //peticion GET
     try {
-      //codigo que quiero ejecutar
       const respuesta = await fetch(URL);
       const listaProducto = await respuesta.json();
-      //console.log(respuesta)
-      //console.log(listaProducto)
       setProductos(listaProducto);
     } catch (error) {
-      //agregar un msj intuitivo para el usuario
       console.log(error);
     }
   };
+
   return (
-    <section className="container py-5">
-      <div className="d-flex justify-content-between align-items-center">
-        <h1 className="display-4">Productos disponibles</h1>
-        <Link to="/administrar/crear" className="btn btn-primary">
-          Agregar
-        </Link>
+    <section className="py-5 bg">
+      <div className="container text-center">
+        <h1 className="display-4 titulo">Productos disponibles</h1>
+        <Link to={`/administrar/crear`}>
+          <Button
+            variant="outline-light"
+            style={{ background: "#f29191" }}
+            className="btn"
+          >
+            Agregar
+          </Button>
+          </Link>
       </div>
-      <hr></hr>
-      <Table responsive striped bordered hover>
-        <thead>
-          <tr>
-            <th>Cod</th>
-            <th>Producto</th>
-            <th>Precio</th>
-            <th>URL de la imagen</th>
-            <th>Categoria</th>
-            <th>Opciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/*aqui tengo que mapear*/}
-          {productos.map((producto) => (
-            <ItemProducto key={producto.id} producto={producto} consultarAPI={consultarAPI}></ItemProducto>
-          ))}
-        </tbody>
-      </Table>
+      <hr className="container"></hr>
+      <div className="container">
+        <Table responsive striped bordered hover className="mx-auto th">
+          <thead>
+            <tr>
+              <th>Cod</th>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th className="truncar">URL de la imagen</th>
+              <th>Categoria</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {productos.map((producto) => (
+              <ItemProducto
+                key={producto.id}
+                producto={producto}
+                consultarAPI={consultarAPI}
+              />
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </section>
   );
 };
 
 export default AdministrarProductos;
+

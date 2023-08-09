@@ -3,8 +3,15 @@
     height: 100px;
     padding-top: 4;
     padding-bottom: 4;
+    margin-left: 50px;
 }
 
 .foot{
     background-color: #f29191;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@600&display=swap');
+
+h6{
+    font-family: 'Edu SA Beginner', cursive;
 }

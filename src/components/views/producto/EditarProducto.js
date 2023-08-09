@@ -79,8 +79,8 @@ const EditarProducto = () => {
     }
   };
   return (
-    <section className="container pb-5">
-      <h1 className="display-4 pt-5">Editar producto</h1>
+    <section className="px-5 bg pb-5">
+      <h1 className="display-4 pt-5 text-center">Editar producto</h1>
       <hr></hr>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formNombre">
@@ -126,15 +126,11 @@ const EditarProducto = () => {
             <option value="salado">Salado</option>
           </Form.Select>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="outline-light"style={{ background: "#f29191" }} type="submit">
           Guardar
         </Button>
       </Form>
-      {/*} {msjError === true ? (
-        <Alert variant="danger" className="mt-4 text-center">
-          Debe corregir los datos
-        </Alert>
-     ) : null} */}
+    
     </section>
   );
 };

@@ -4,6 +4,8 @@ import { cantidadCaracteres, validarPrecio } from "./helpers.js";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
+
+
 const CrearProducto = () => {
   //crear states
   const [nombreProducto, setNombreProducto] = useState("");
@@ -43,7 +45,7 @@ const CrearProducto = () => {
         Swal.fire(
           'Producto creado!',
           'El producto fue creado con éxito',
-          'success'
+          'ok'
         )
 
         //redireccionar a la pagina de administrar
@@ -61,8 +63,8 @@ const CrearProducto = () => {
   };
 
   return (
-    <section className="container pb-5">
-      <h1 className="display-4 pt-5">Nuevo producto</h1>
+    <section className="px-5 pb-5 bg">
+      <h1 className="display-4 pt-5 text-center">Nuevo producto</h1>
       <hr></hr>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formNombre">
@@ -101,7 +103,7 @@ const CrearProducto = () => {
             <option value="salado">Salado</option>
           </Form.Select>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="outline-light"style={{ background: "#f29191" }} type="submit">
           Guardar
         </Button>
       </Form>

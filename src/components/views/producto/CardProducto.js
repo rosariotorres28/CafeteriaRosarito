@@ -1,31 +1,34 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./styleCard.css";
 
 const CardProducto = ({ producto }) => {
+  const { nombreProducto, precio, imagen, id } = producto;
   return (
-    <Card className="my-4">
-      <Card.Img variant="top" src={producto.imagen} className="img-fluid" />
-      <Card.Body>
-        <Card.Title>{producto.nombreProducto}</Card.Title>
-        <Card.Text>
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
+    <Card className="my-4 w-100 rounded-3 shadow img cardB" style={{ height: "300px" }}>
+      <Card.Img variant="top" src={imagen} style={{ height: "70%" }} />
+      <Card.Body className="cardB d-flex justify-content-center align-items-center flex-column">
+        <Card.Title className="text-center text-white">{nombreProducto}</Card.Title>
+        <Card.Text className="text-center text">
+          Precio: ${precio}
         </Card.Text>
-        <Card.Text>
-        Precio: {producto.precio}
-        </Card.Text>
+        <div className="data-container">
+          <Link to={`/administrar/producto/detalle/${id}`}>
+            <Button variant="outline-light" style={{ background: "#fa5656" }}>
+              Ver
+            </Button>
+          </Link>
+        </div>
       </Card.Body>
-      <Card.Footer>
-        <Link
-          to={`/administrar/producto/detalle/${producto._id}`}
-          className="btn btn-danger me-2"
-        >
-          Ver más
-        </Link>
-      </Card.Footer>
     </Card>
   );
 };
 
 export default CardProducto;
+
+
+
+
+
+

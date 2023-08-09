@@ -1,0 +1,28 @@
+.bg{
+    background-image: url("./img/fondo.jpg");
+
+}
+
+.cardB{
+    background-color: #f29191;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@600&display=swap');
+
+h1{
+    font-family: 'Edu SA Beginner', cursive;
+}
+
+h3{
+    font-family: 'Edu SA Beginner', cursive;
+    font-size: 12px;
+}
+
+h2{
+    font-family: 'Edu SA Beginner', cursive;
+}
+
+.texto{
+    border-style: dotted #f29191;
+}

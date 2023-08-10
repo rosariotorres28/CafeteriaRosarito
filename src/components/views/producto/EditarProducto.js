@@ -13,11 +13,10 @@ const EditarProducto = () => {
 
   const URL = process.env.REACT_APP_API_CAFETERIA;
 
-  //referencias
   const nombreProductoRef = useRef("");
   const precioRef = useRef(0);
   const imagenRef = useRef("");
- // navigate
+ 
  const navegacion = useNavigate();
 
   useEffect(() => {
@@ -36,23 +35,18 @@ const EditarProducto = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //validar que todos los campos son correctos
-    console.log(nombreProductoRef);
-    console.log(nombreProductoRef.current);
-    console.log(nombreProductoRef.current.value);
     if (
       cantidadCaracteres(nombreProductoRef.current.value) &&
       validarPrecio(precioRef.current.value)
     ) {
-      //crear un objeto con los datos modificados
+      
       const productoEditar = {
         nombreProducto: nombreProductoRef.current.value,
         precio: precioRef.current.value,
         imagen: imagenRef.current.value,
         categoria: producto.categoria
       };
-      console.log(productoEditar);
-      //pedir a la api la actualizacion
+      
       try {
         const respuesta = await fetch(`${URL}/${id}`, {
           method: "PUT",
@@ -67,15 +61,15 @@ const EditarProducto = () => {
             "El producto fue editado con éxito",
             "success"
           );
-          //redirecciono a la pagina de administrar
+          
           navegacion("/administrar")
         }
       } catch (error) {
         console.log(error);
       }
-      //redireccionar a la pagina de productos
+  
     } else {
-      //mostrar un msj de error al usuario
+      alert("El producto no pudo ser editado")
     }
   };
   return (

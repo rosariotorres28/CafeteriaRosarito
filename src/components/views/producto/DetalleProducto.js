@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Badge, Card, Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import "../views/producto/styleDetalle.css";
+import "../estilos/styleDetalle.css";
 
 const DetalleProducto = () => {
   const { id } = useParams();
@@ -35,7 +35,7 @@ const DetalleProducto = () => {
               />
             </Col>
             <Col md={6} className="py-3">
-              <h3 className="text-center">{producto.nombreProducto}</h3>
+              <h2 className="text-center">{producto.nombreProducto}</h2>
               <hr />
               <p className="mt-3 text-center">
                 <b>Precio: ${producto.precio}</b>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Container, Nav, Image } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
-import "./styleMenu.css";
+import "../views/estilos/styleMenu.css";
 import gatocafe from "../views/img/gatocafe2.png";
 
 const Menu = () => {
@@ -14,10 +14,7 @@ const Menu = () => {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="mr-auto flex-grow-1 mx-5 justify-content-center ">
-          <NavLink end to="/" className="nav-item nav-link ">
-              <h5 className="">HOME</h5>
-            </NavLink>
-            <NavLink end to="/inicio" className="nav-item nav-link ">
+            <NavLink end to="/" className="nav-item nav-link ">
               <h5 className="">INICIO</h5>
             </NavLink>
             <NavLink end to="/administrar" className="nav-item nav-link ">

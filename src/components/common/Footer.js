@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Image } from "react-bootstrap";
 import gatocafe from "../views/img/gatocafe2.png";
-import "./styleFooter.css";
+import "../views/estilos/styleFooter.css";
 
 const Footer = () => {
   return (

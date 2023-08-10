@@ -7,32 +7,29 @@ import { useNavigate } from "react-router-dom";
 
 
 const CrearProducto = () => {
-  //crear states
+
   const [nombreProducto, setNombreProducto] = useState("");
   const [precio, setPrecio] = useState(0);
   const [imagen, setImagen] = useState("");
   const [categoria, setCategoria] = useState ("");
   const [msjError, setMsjError] = useState (false);
 
-  //variable de entorno con la direccion de mi api
+  
   const URL = process.env.REACT_APP_API_CAFETERIA
-  //inicializar useNavigate
+  
   const navegacion = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //validar los datos
     if(cantidadCaracteres (nombreProducto) && validarPrecio(precio)){
       setMsjError(false)
-      //crear un objeto
     const nuevoProducto = {
       nombreProducto: nombreProducto,
       precio: precio,
       imagen: imagen,
       categoria: categoria
     }
-    console.log(nuevoProducto)
-    //enviar peticion a json server (api) create
+
     try{
       const respuesta = await fetch(URL, {
         method: "POST",
@@ -41,14 +38,12 @@ const CrearProducto = () => {
           body: JSON.stringify(nuevoProducto)
       });
       if(respuesta.status === 201){
-        //mostrar un msj que todo salió bien
         Swal.fire(
           'Producto creado!',
           'El producto fue creado con éxito',
           'ok'
         )
 
-        //redireccionar a la pagina de administrar
         navegacion("/administrar");
       }
 

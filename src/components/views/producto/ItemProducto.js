@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import "./styleItem.css";
+import "../estilos/styleItem.css";
 
 const ItemProducto = ({ producto, consultarAPI }) => {
   const { nombreProducto, precio, imagen, categoria, id } = producto;

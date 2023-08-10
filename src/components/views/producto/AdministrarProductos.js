@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Table, Button } from "react-bootstrap";
 import ItemProducto from "./ItemProducto";
 import { Link } from "react-router-dom";
-import "./styleAdministrar.css"
+import "../estilos/styleAdministrar.css"
 
 const AdministrarProductos = () => {
   const URL = process.env.REACT_APP_API_CAFETERIA;
